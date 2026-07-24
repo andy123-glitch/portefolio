@@ -5,19 +5,19 @@ export interface Skill {
 }
 
 export interface Project {
-  id: string;
+  id: number;
   title: string;
   description: string;
-  imageUrl: string;
+  image: string;
   technologies: string[];
   liveUrl?: string; // Optionnel (ex: "Voir le projet")
   githubUrl?: string; // Optionnel
 }
 
 export interface Experience {
-  id: string;
+  id: number;
   period: string;
-  location: string;
+  city: string;
   role: string;
   company: string;
   description: string;

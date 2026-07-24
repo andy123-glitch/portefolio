@@ -1,5 +1,6 @@
+
 // Expériences professionnelles - données pour la section Experience
-export const experiences = [
+export const experiences= [
   {
     id: 1,
     period: "2023 - Présent",

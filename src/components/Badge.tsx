@@ -1,5 +1,4 @@
-export default function Badge({ color, texte = "", className = "" }) {
-  console.log(color);
+export default function Badge({ color, texte = ""}) {
   return (
     <div
       className="inline-flex bg-tag-bg font-card-foreground border border-border items-center justify-center 

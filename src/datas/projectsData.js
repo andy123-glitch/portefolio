@@ -8,7 +8,7 @@ export const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Tailwind"],
     github: "https://github.com/",
     live: "https://exemple.com/",
-    image: "https://placehold.co/600x400/0e1628/00c8ff?text=E-commerce",
+    image: "https://placehold.co/600x400/0e2628/00c8ff?text=E-commerce",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ export const projects = [
     technologies: ["React", "TypeScript", "Express", "PostgreSQL"],
     github: "https://github.com/",
     live: "https://exemple.com/",
-    image: "https://placehold.co/600x400/0e1628/00c8ff?text=Task+App",
+    image: "https://placehold.co/600x400/0e2628/00c8ff?text=Task+App",
   },
   {
     id: 3,
