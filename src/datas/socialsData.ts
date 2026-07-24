@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn} from "react-icons/fa6";
 
 // Réseaux sociaux réutilisables dans Navbar, Hero et Footer
 export const socials = [
