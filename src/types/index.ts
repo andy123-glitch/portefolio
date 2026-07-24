@@ -1,7 +1,7 @@
 export interface Skill {
   name: string;
-  icon: string; // Nom de l'icône Lucide ou chemin SVG
-  category: "frontend" | "backend" | "outil"; // Optionnel, pour filtrer
+  color : string;
+  category?: "frontend" | "backend" | "outil"; // Optionnel, pour filtrer
 }
 
 export interface Project {
@@ -23,3 +23,4 @@ export interface Experience {
   description: string;
   technologies: string[];
 }
+
