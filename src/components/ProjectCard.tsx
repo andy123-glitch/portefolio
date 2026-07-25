@@ -3,8 +3,6 @@ import { type Project } from "../types/index";
 
 interface ProjectCardProps {
   project: Project;
-  isLast: boolean;
-  isFisrt: boolean;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {

@@ -13,7 +13,7 @@ const floatingTechs = [
 ];
 export default function Hero() {
   return (
-    <section className=" min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-12 pt-24 items-center" id="about">
+    <section className=" min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-12 pt-24 items-center" id="hero">
       <div className="flex flex-col lg:gap-12 md:gap-8 gap-4 lg:order-1 order-2">
         <h1 className="font-bold lg:text-4xl text-2xl">
           Développeur Web <span className="text-primary">Fullstack</span>

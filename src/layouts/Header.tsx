@@ -9,7 +9,7 @@ export default function Header() {
   };
   return (
     <header className="fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b border-border">
-      <nav className="flex justify-around mx-auto max-w-7xl h-16 items-center px-6 not-md:px-0 not-sm:flex-col">
+      <nav className="flex justify-between mx-auto max-w-7xl h-16 items-center px-6 not-md:px-0 not-sm:flex-col">
         {/* Logo */}
         <a href="#accueil" className="font-mono text-lg not-md:text-base font-bold text-foreground">
           <span className="text-primary">{"<"}</span>

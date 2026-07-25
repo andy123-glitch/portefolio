@@ -1,6 +1,8 @@
+import { type LucideIcon } from "lucide-react";
 export interface Skill {
   name: string;
   color : string;
+  icon? : LucideIcon;
   category?: "frontend" | "backend" | "outil"; // Optionnel, pour filtrer
 }
 

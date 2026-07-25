@@ -1,19 +1,21 @@
+import { icons, type LucideIcon } from "lucide-react";
+
 interface Badgeprops {
   color?: string;
   children?: React.ReactNode;
   variant?: string;
   className?: string;
+  Icon?: LucideIcon;
 }
 
-export default function Badge({ color = "", children, variant = "default", className = "" }: Badgeprops) {
+export default function Badge({ color, children, variant = "primary", className = "" }: Badgeprops) {
   const variants: { [index: string]: string } = {
-    default: "inline-flex items-center gap-2 bg-tag-bg border border-border text-secondary-foreground px-3 py-1 rounded-md text-sm",
-    intro: "inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-1.5 rounded-full text-sm font-medium",
+    primary: "inline-flex items-center gap-2 bg-tag-bg border border-border px-3 py-1.5 rounded-xl text-sm",
   };
-
+  console.log(color);
   return (
     <div className={`${variants[variant]} ${className}`}>
-      {color && <span className={`bg-[${color}] h-3 w-3 rounded-xl`}></span>}
+      {color && <span className="h-2.5 w-2.5 rounded-full inline-block shrink-0" style={{ backgroundColor: color }}></span>}
       {children}
     </div>
   );
