@@ -1,4 +1,4 @@
-import { icons, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
 interface Badgeprops {
   color?: string;

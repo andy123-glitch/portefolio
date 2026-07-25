@@ -1,4 +1,4 @@
-import { Calendar, Contact, Dot, Mail, Pin } from "lucide-react";
+import { Calendar, Contact, Mail, Pin } from "lucide-react";
 import Block from "../components/Block";
 import SubTitle from "../components/SubTitle";
 import BlockTitle from "../components/BlockTitle";
