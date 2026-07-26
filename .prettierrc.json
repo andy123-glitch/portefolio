@@ -10,9 +10,6 @@
   "endOfLine": "lf",
   "jsxSingleQuote": false,
   "jsxBracketSameLine": false,
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./src/index.css",
-  "tailwindFunctions": ["clsx", "cn", "classnames", "twMerge", "ctl"],
   "overrides": [
     {
       "files": "*.{css,scss,sass,less}",

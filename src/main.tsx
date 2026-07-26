@@ -8,20 +8,21 @@ import Skills from './layouts/Skills';
 import Experiences from './layouts/Experiences';
 import Projects from './layouts/Projects';
 import Contact from './layouts/Contact';
+import Footer from './layouts/Footer';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Navbar />
-    <main className="mx-auto max-w-7xl px-5">
-      {' '}
+    <main className="mx-auto container px-5">
       <Hero />
       <About />
       <Skills />
       <Projects />
-      <div className="grid grid-cols-1 gap-20 lg:grid-cols-[2fr_1fr] lg:gap-10">
+      <div className="grid grid-cols-1 lg:gap-20 lg:grid-cols-[2fr_1fr] lg:gap-10">
         <Experiences />
         <Contact />
       </div>
     </main>
+    <Footer />
   </StrictMode>
 );

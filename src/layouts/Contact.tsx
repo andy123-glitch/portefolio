@@ -5,8 +5,8 @@ import SubTitle from '../components/SubTitle';
 import Button from '../components/Button';
 
 export default function Contact() {
-    const inputClassName =
-        'p-3 rounded-md w-full border border-border bg-secondary/40 text-secondary-foreground focus-visible:ring-primary';
+  const inputClassName =
+    'p-3 rounded-md w-full border border-border bg-secondary/40 text-secondary-foreground focus-visible:ring-primary';
   return (
     <Block id="contact">
       <SubTitle>Contact</SubTitle>
@@ -15,17 +15,15 @@ export default function Contact() {
         Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter. Je suis ouvert
         à de nouvelles opportunités et collaborations.
       </p>
-      <form className="mt-4 flex flex-col gap-4" action="https://formspree.io/f/mnqvkwqk" method="POST">
+      <form
+        className="mt-4 flex flex-col gap-4"
+        action="https://formspree.io/f/mnqvkwqk"
+        method="POST"
+      >
         <div className="flex flex-col gap-4 lg:flex-row">
+          <input className={inputClassName} type="text" name="name" placeholder="Nom" required />
           <input
-            className={inputClassName}
-            type="text"
-            name="name"
-            placeholder="Nom"
-            required
-          />
-          <input
-            className={inputClassName}
+            className={inputClassName }
             type="email"
             name="email"
             placeholder="Email"
@@ -40,11 +38,11 @@ export default function Contact() {
           required
         />
         <textarea
-          className={inputClassName }
+          className={inputClassName}
           name="message"
           placeholder="Message"
           required
-            rows={5}
+          rows={5}
         ></textarea>
         <Button type="submit">
           Envoyer le message <Send size={16} />

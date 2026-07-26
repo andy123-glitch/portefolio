@@ -18,7 +18,6 @@ export default function Badge({
     primary:
       'inline-flex items-center gap-2 bg-tag-bg border border-border px-3 py-1.5 rounded-xl text-sm',
   };
-  console.log(color);
   return (
     <div className={`${variants[variant]} ${className}`}>
       {color && (
