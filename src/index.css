@@ -4,47 +4,47 @@
 @import "tailwindcss";
 
 @theme {
-    /* --- POLICES DE CARACTÈRES --- */
-    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-    --font-heading: "Inter", system-ui, -apple-system, sans-serif;
+  /* --- POLICES DE CARACTÈRES --- */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Inter", system-ui, -apple-system, sans-serif;
 
-    /* --- TAILLES DE TEXTE --- */
-    --text-xs: 12px; /* Extra small */
-    --text-sm: 13px; /* Small */
-    --text-base: 15px; /* Base */
-    --text-lg: 18px; /* Large */
-    --text-xl: 22px; /* Extra large */
-    --text-2xl: 28px; /* Huge */
-    --text-3xl: 36px; /* Extra Huge */
-    --text-4xl: 52px; /* Gigantic */
+  /* --- TAILLES DE TEXTE --- */
+  --text-xs: 12px; /* Extra small */
+  --text-sm: 13px; /* Small */
+  --text-base: 15px; /* Base */
+  --text-lg: 18px; /* Large */
+  --text-xl: 22px; /* Extra large */
+  --text-2xl: 28px; /* Huge */
+  --text-3xl: 36px; /* Extra Huge */
+  --text-4xl: 52px; /* Gigantic */
 
-    /* --- ARROUNDIS (Roundness) --- */
-    --radius-sm: 4px; /* Small */
-    --radius-md: 8px; /* Medium */
-    --radius-lg: 12px; /* Large */
-    --radius-xl: 24px; /* Extra large */
+  /* --- ARROUNDIS (Roundness) --- */
+  --radius-sm: 4px; /* Small */
+  --radius-md: 8px; /* Medium */
+  --radius-lg: 12px; /* Large */
+  --radius-xl: 24px; /* Extra large */
 
-    /* --- COULEURS DU THÈME --- */
-    --color-background: #0a0f1e; /* Bleu nuit très sombre */
-    --color-foreground: #ffffff; /* Texte principal (blanc/gris très clair) */
-    --color-border: #1e2a45; /* Bordures sombres */
-    --color-input: #131d35; /* Fond des champs de saisie */
-    --color-primary: #00c8ff; /* Bleu Cyan lumineux */
-    --color-primary-foreground: #0a0f1e; /* Couleur du texte sur bouton Primary */
-    --color-secondary: #1a2540; /* Fond secondaire */
-    --color-secondary-foreground: #a0b4d0; /* Texte secondaire (bleuté adouci) */
-    --color-muted: #1e2a45; /* Éléments en retrait */
-    --color-muted-foreground: #8899aa; /* Texte grisé */
-    --color-accent: #0056d2; /* Bleu royal vif */
-    --color-card: #0e1628; /* Fond des cartes de projets/expériences */
-    --color-card-foreground: #e0eaf5; /* Texte dans les cartes */
-    --color-teal: #00c8ff; /* Variante Cyan/Teal vive */
-    --color-tag-bg: #131d35; /* Fond des tags technologiques (ex: "React") */
+  /* --- COULEURS DU THÈME --- */
+  --color-background: #0a0f1e; /* Bleu nuit très sombre */
+  --color-foreground: #ffffff; /* Texte principal (blanc/gris très clair) */
+  --color-border: #1e2a45; /* Bordures sombres */
+  --color-input: #131d35; /* Fond des champs de saisie */
+  --color-primary: #00c8ff; /* Bleu Cyan lumineux */
+  --color-primary-foreground: #0a0f1e; /* Couleur du texte sur bouton Primary */
+  --color-secondary: #1a2540; /* Fond secondaire */
+  --color-secondary-foreground: #a0b4d0; /* Texte secondaire (bleuté adouci) */
+  --color-muted: #1e2a45; /* Éléments en retrait */
+  --color-muted-foreground: #8899aa; /* Texte grisé */
+  --color-accent: #0056d2; /* Bleu royal vif */
+  --color-card: #0e1628; /* Fond des cartes de projets/expériences */
+  --color-card-foreground: #e0eaf5; /* Texte dans les cartes */
+  --color-teal: #00c8ff; /* Variante Cyan/Teal vive */
+  --color-tag-bg: #131d35; /* Fond des tags technologiques (ex: "React") */
 }
 
 /* Style de base pour appliquer le fond et la couleur de texte par défaut */
 body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
 }

@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Build outputs
+dist/
+build/
+.turbo/
+.output/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# Output directories
+.output/
+.cache/
+
+# Misc
+*.min.js
+*.min.css
+
+# Vite / React specific
+/vite.config.*timestamp/
+/tailwind.config.*timestamp/
+
+# OS
+.DS_Store
+Thumbs.db
