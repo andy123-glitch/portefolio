@@ -31,7 +31,9 @@ export default function ExperienceCard({
         </h3>
         <div className="flex gap-x-1.75">
           {experience.technologies.map((tech) => (
-            <Badge key={experience.id+tech} variant='secondary'>{tech}</Badge>
+            <Badge key={'et' + experience.id + '-' + tech} variant="secondary">
+              {tech}
+            </Badge>
           ))}
         </div>
       </div>

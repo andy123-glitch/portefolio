@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <article className="grid grid-rows-[auto_1fr] overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,200,255,0.15)]">
       <div className="relative h-48 overflow-hidden">
         <img
-          alt={"Capture d'écran de la page d'acceuil du Projet "+project.title}
+          alt={"Capture d'écran de la page d'accueil du projet " + project.title}
           src={project.image}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               variant="icon"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Voir le projet sur Github"
+              aria-label="Voir le projet sur GitHub"
             >
               <FaGithub size={25} className="text-accent shadow-2xl" />
             </Button>
@@ -37,9 +37,55 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <p className=" text-sm text-secondary-foreground lg:text-base flex-1">
           {project.description}
         </p>
+
+        <details className="text-sm text-secondary-foreground">
+          <summary className="cursor-pointer font-medium text-foreground">
+            Détails du projet
+          </summary>
+          <div className="mt-2 grid gap-2">
+            {project.context && (
+              <p>
+                <span className="font-semibold text-foreground">Contexte :</span> {project.context}
+              </p>
+            )}
+            {project.objectives && project.objectives.length > 0 && (
+              <p>
+                <span className="font-semibold text-foreground">Objectifs :</span>{' '}
+                {project.objectives.join(' • ')}
+              </p>
+            )}
+            {project.stack && project.stack.length > 0 && (
+              <p>
+                <span className="font-semibold text-foreground">Stack :</span>{' '}
+                {project.stack.join(', ')}
+              </p>
+            )}
+            {project.skillsDeveloped && project.skillsDeveloped.length > 0 && (
+              <p>
+                <span className="font-semibold text-foreground">Compétences développées :</span>{' '}
+                {project.skillsDeveloped.join(', ')}
+              </p>
+            )}
+            {project.results && project.results.length > 0 && (
+              <p>
+                <span className="font-semibold text-foreground">Résultats :</span>{' '}
+                {project.results.join(' • ')}
+              </p>
+            )}
+            {project.improvements && project.improvements.length > 0 && (
+              <p>
+                <span className="font-semibold text-foreground">Perspectives d'amélioration :</span>{' '}
+                {project.improvements.join(' • ')}
+              </p>
+            )}
+          </div>
+        </details>
+
         <div className="flex flex-wrap gap-1.75">
-          {project.technologies.map((tech,index) => (
-            <Badge key={project.title+tech+index} variant='secondary'>{tech}</Badge>
+          {project.technologies.map((tech) => (
+            <Badge key={`${project.title}-${tech}`} variant="secondary">
+              {tech}
+            </Badge>
           ))}
         </div>
         {project.liveUrl ? (

@@ -1,7 +1,7 @@
 import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 
-// Réseaux sociaux réutilisables dans Navbar, Hero et Footer
+// Réseaux sociaux réutilisables
 export const socials = [
   {
     name: 'GitHub',
@@ -11,7 +11,7 @@ export const socials = [
       rel: 'noopener noreferrer',
     },
     icon: FaGithub,
-    ariaLabel: 'Voir mon profil Github',
+    ariaLabel: 'Voir mon profil GitHub',
   },
   {
     name: 'LinkedIn',
@@ -21,12 +21,12 @@ export const socials = [
       rel: 'noopener noreferrer',
     },
     icon: FaLinkedinIn,
-    ariaLabel: 'Voir mon profil Linkedin',
+    ariaLabel: 'Voir mon profil LinkedIn',
   },
   {
     name: 'Email',
     attributs: { href: 'mailto:andy.azerot@gmail.com' },
-    ariaLabel: 'Pour me contacter par mail',
+    ariaLabel: 'Pour me contacter par e-mail',
     icon: Mail,
   },
 ];

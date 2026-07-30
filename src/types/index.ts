@@ -10,6 +10,12 @@ export interface Project {
   id: number;
   title: string;
   description: string;
+  context?: string;
+  objectives?: string[];
+  stack?: string[];
+  skillsDeveloped?: string[];
+  results?: string[];
+  improvements?: string[];
   image: string;
   technologies: string[];
   liveUrl?: string; // Optionnel (ex: "Voir le projet")

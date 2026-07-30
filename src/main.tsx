@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
       <About />
       <Skills />
       <Projects />
-      <div className="grid grid-cols-1  lg:grid-cols-[1fr_1fr]">
+      <div className="grid grid-cols-1  md:grid-cols-[1fr_1fr]">
         <Experiences />
         <Contact />
       </div>

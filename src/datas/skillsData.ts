@@ -1,9 +1,8 @@
 // Compétences / technologies
-// L'icône est une URL vers le SVG de simple-icons (CDN)
 import { type Skill } from '../types/index';
 import {
-  FileCode, // HTML5
-  Palette, // CSS3
+  FileCode, // HTML
+  Palette, // CSS
   Code2, // JavaScript
   FileJson, // TypeScript
   Atom, // React
@@ -21,8 +20,8 @@ export const skills: Skill[] = [
   { name: 'JavaScript', color: '#F7DF1E', icon: Code2, category: 'frontend' },
   { name: 'TypeScript', color: '#3178C6', icon: FileJson, category: 'frontend' },
   { name: 'React', color: '#61DAFB', icon: Atom, category: 'frontend' },
-  { name: 'Node.js', color: '#339933', icon: Server, category: 'backend' }, 
-  { name: 'Express', color: '#E2E8F0', icon: Cpu, category: 'backend' }, 
+  { name: 'Node.js', color: '#339933', icon: Server, category: 'backend' },
+  { name: 'Express', color: '#E2E8F0', icon: Cpu, category: 'backend' },
   { name: 'Tailwind CSS', color: '#06B6D4', icon: Wind, category: 'frontend' },
   { name: 'MongoDB', color: '#47A248', icon: Database, category: 'backend' },
   { name: 'Git', color: '#F05032', icon: GitBranch, category: 'outil' },

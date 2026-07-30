@@ -1,8 +1,7 @@
-import { ArrowRight, Download, Mail } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import hero from '../assets/hero.png';
 import Button from '../components/Button';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { socials } from '../datas/socialsData';
 // Bulles d'icônes tech flottantes autour de la photo
 const floatingTechs = [
@@ -20,11 +19,11 @@ export default function Hero() {
     >
       <div className="order-2 flex flex-col gap-4 md:gap-8 lg:order-1 lg:gap-12">
         <h1 className="text-2xl font-bold lg:text-4xl">
-          Développeur Web <span className="text-primary">Fullstack</span>
+          Développeur web <span className="text-primary">Full Stack</span>
         </h1>
         <p className="text-sm text-muted-foreground lg:text-base">
-          Je conçois et développe des applications web modernes, performantes et scalables avec des
-          technologies de pointe.
+          Je conçois et développe des applications web modernes, performantes et évolutives, en
+          alliant expérience utilisateur de qualité et robustesse technique.
         </p>
         <div className="flex gap-4">
           <Button href="/Andy_Azerot_CV.pdf" target="_blank">
@@ -36,9 +35,9 @@ export default function Hero() {
           </Button>
         </div>
         <div className="flex gap-2">
-          {socials.map((social, index) => (
+          {socials.map((social) => (
             <Button
-              key={index + 'Footer' + social.name}
+              key={'hs-' + social.name}
               variant="icon"
               size="icon"
               {...social.attributs}
@@ -56,13 +55,14 @@ export default function Hero() {
           </div>
 
           {floatingTechs.map((tech, i) => {
-            const radius = 160;
+            const radius = 160; // Le cercle a un diametre maximum de 320px
+            // On determine la position de la bulle volante
             const rad = (tech.angle * Math.PI) / 180;
             const x = Math.cos(rad) * radius;
             const y = Math.sin(rad) * radius;
             return (
               <motion.div
-                key={tech.name}
+                key={'ft-' + tech.name}
                 className="absolute top-1/2 left-1/2 flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-card shadow-lg"
                 style={{
                   x: x - 24,
@@ -78,7 +78,7 @@ export default function Hero() {
                   ease: 'easeInOut',
                 }}
               >
-                <img src={tech.icon} alt={tech.name} className="h-7 w-7" />
+                <img src={tech.icon} alt={'Bulle flotante ' + tech.name} className="h-7 w-7" />
               </motion.div>
             );
           })}

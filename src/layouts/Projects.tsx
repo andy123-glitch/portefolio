@@ -9,9 +9,9 @@ export default function Projects() {
     <Block id="projects">
       <SubTitle>PROJETS RÉCENTS</SubTitle>
       <BlockTitle>Mes projets</BlockTitle>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
         {projects.map((p) => (
-          <ProjectCard project={p} />
+          <ProjectCard project={p} key={'pj-' + p.id} />
         ))}
       </div>
     </Block>

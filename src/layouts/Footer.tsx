@@ -5,20 +5,19 @@ import { socials } from '../datas/socialsData';
 import Logo from '../components/Logo';
 
 export default function Footer() {
-  const footerLinksStyle =
-    'mt-1 block text-sm text-muted-foreground hover:text-primary';
+  const footerLinksStyle = 'mt-1 block text-sm text-muted-foreground hover:text-primary';
   return (
     <footer className="border-t border-border py-6 px-5">
       <div className="container mx-auto grid grid-cols-1 gap-4 md:grid-cols-[2fr_auto]">
         <div className="flex flex-col gap-5">
           <Logo />
           <p className="text-sm text-muted-foreground ">
-            Développeur web fullstack passionné par la création de solutions digitales innovantes.
+            Développeur web full stack passionné par la création de solutions digitales innovantes.
           </p>
           <div className="flex gap-2">
-            {socials.map((social, index) => (
+            {socials.map((social) => (
               <Button
-                key={index + 'Footer' + social.name}
+                key={'fs-' + social.name}
                 variant="icon"
                 size="icon"
                 {...social.attributs}
@@ -30,21 +29,21 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-4 px-4 flex flex-row gap-4 justify-around not-md:flex-wrap md:gap-10">
-          <div className="">
+          <div>
             <h3 className="text-base font-semibold">Navigation</h3>
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className={footerLinksStyle}>
+              <a key={'fl-' + link.label} href={link.href} className={footerLinksStyle}>
                 {link.label}
               </a>
             ))}
           </div>
-          <div className="">
-            <h3 className="text-base font-semibold ">Ressouces</h3>
+          <div>
+            <h3 className="text-base font-semibold ">Ressources</h3>
             <a className={footerLinksStyle} href="/Andy_Azerot_CV.pdf" target="_blank">
               Voir mon CV (PDF)
             </a>
           </div>
-          <div className="">
+          <div>
             <h3 className="text-base font-semibold">Contact</h3>
             <a className={footerLinksStyle} href="mailto:andy.azerot@gmail.com">
               <Mail className="inline-block mr-1.5" size={16} />
@@ -68,7 +67,7 @@ export default function Footer() {
       </div>
       <div className="mt-8 mx-12 border-t border-border pt-4">
         <div className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} kcatSlluFveD. Tous droits réservés.
+          © {new Date().getFullYear()} Andy Azerot. Tous droits réservés.
         </div>
       </div>
     </footer>

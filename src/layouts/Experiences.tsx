@@ -15,6 +15,7 @@ export default function Experiences() {
             experience={e}
             isFisrt={index === 0}
             isLast={index + 1 === experiences.length}
+            key={'ec-' + e.id}
           />
         ))}
       </div>

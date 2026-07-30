@@ -3,22 +3,22 @@ import Block from '../components/Block';
 import BlockTitle from '../components/BlockTitle';
 import SubTitle from '../components/SubTitle';
 import Button from '../components/Button';
-import { useState } from 'react'; 
+import { useState } from 'react';
 
 export default function Contact() {
-  const [sending, setSending] = useState(false); // état pour le style du bouton
-  const [isSent, setIsSent] = useState(false); //  état pour le message de succès
+  const [sending, setSending] = useState(false); //
+  const [isSent, setIsSent] = useState(false);
 
   const inputClassName =
     'p-3 rounded-md w-full border border-border bg-secondary/40 text-secondary-foreground focus-visible:ring-primary';
 
   const handleSubmit = () => {
     setSending(true);
-    setIsSent(false); // On cache le message au cas où on renvoie un mail
+    setIsSent(false);
 
     setTimeout(() => {
       setSending(false);
-      setIsSent(true); // On affiche le message de succès
+      setIsSent(true);
 
       setTimeout(() => setIsSent(false), 3000);
     }, 1000);
@@ -41,15 +41,15 @@ export default function Contact() {
             name="name"
             placeholder="Nom"
             required
-            aria-label="Vorte Nom"
+            aria-label="Votre nom"
           />
           <input
             className={inputClassName}
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="E-mail"
             required
-            aria-label="Votre adresse mail"
+            aria-label="Votre adresse e-mail"
           />
         </div>
 
@@ -89,7 +89,7 @@ export default function Contact() {
               : '-translate-y-10 opacity-0 -z-10 pointer-events-none'
           }`}
         >
-          Le mail a bien été envoyé !
+          Le message a bien été envoyé !
         </p>
       </div>
     </Block>
