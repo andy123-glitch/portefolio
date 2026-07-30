@@ -7,7 +7,6 @@ export const experiences: Experience[] = [
     city: 'Limoges, France',
     role: 'Titre proféssionnelle DWWM',
     company: 'GRETA du limousin',
-    description: 'A changer',
     technologies: ['React', 'Node.js', 'Docker', 'PostgreSQL'],
   },
   {
@@ -16,7 +15,6 @@ export const experiences: Experience[] = [
     city: 'Belfort, France',
     role: 'License Professionelle ',
     company: 'IUT de Belfor',
-    description: 'A changer',
     technologies: ['SwitfUi', 'Laravel', 'Ionic', 'Vue'],
   },
   {
@@ -25,7 +23,6 @@ export const experiences: Experience[] = [
     city: 'Limoges,France',
     role: 'BTS Systeme numérique',
     company: 'Lycée Turgot',
-    description: 'A changer',
     technologies: ['C++', 'Réseau', 'IOT', 'Sigfox'],
   },
 ];

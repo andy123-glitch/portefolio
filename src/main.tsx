@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
       <About />
       <Skills />
       <Projects />
-      <div className="grid grid-cols-1 lg:gap-20 lg:grid-cols-[2fr_1fr] lg:gap-10">
+      <div className="grid grid-cols-1  lg:grid-cols-[1fr_1fr]">
         <Experiences />
         <Contact />
       </div>

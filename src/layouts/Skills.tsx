@@ -12,7 +12,7 @@ export default function Skills() {
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => {
           return (
-            <Badge variant="primary" color={skill.color}>
+            <Badge variant="primary" skill={skill}>
               {skill.name}
             </Badge>
           );

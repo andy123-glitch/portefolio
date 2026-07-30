@@ -4,10 +4,10 @@ import { motion, type MotionProps } from 'motion/react';
 interface BlockProps extends MotionProps {
   className?: string;
   children: React.ReactNode;
-  id?:string;
+  id?: string;
 }
 
-export default function Block({ className = '', children,id='', ...rest }: BlockProps) {
+export default function Block({ className = '', children, id = '', ...rest }: BlockProps) {
   return (
     <motion.section
       id={id}
@@ -15,7 +15,7 @@ export default function Block({ className = '', children,id='', ...rest }: Block
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
-      className={`mb:my-50 my-10 scroll-mt-24 ${className}`}
+      className={`md:mt-40 mt-10 scroll-mt-24 ${className}`}
       {...rest}
     >
       {children}

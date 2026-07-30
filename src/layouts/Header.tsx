@@ -1,17 +1,13 @@
 import { useRef } from 'react';
 import { navLinks } from '../datas/navData.ts';
+import Logo from '../components/Logo.tsx';
 export default function Header() {
   const linkRef = useRef(null);
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 border-b border-border backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 not-sm:flex-col not-md:px-0">
-        {/* Logo */}
-        <a href="#accueil" className="font-mono text-lg font-bold text-foreground not-md:text-base">
-          <span className="text-primary">{'<'}</span>
-          <span className="text-muted-foreground">{'/'}</span>
-          <span className="text-primary">{'>'}</span> kcatSlluFveD
-        </a>
+        <Logo />
         {/* Liens - desktop */}
         <ul ref={linkRef} className="flex items-center gap-3 md:gap-8">
           {navLinks.map((link: { label: string; href: string }) => (

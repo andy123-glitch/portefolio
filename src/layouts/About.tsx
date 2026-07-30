@@ -15,7 +15,7 @@ export default function About() {
       <SubTitle>A propos</SubTitle>
       <BlockTitle>A propos de moi</BlockTitle>
       <div className="mt-3 grid grid-cols-1 gap-6 lg:mt-6 lg:grid-cols-[1fr_auto] lg:gap-15">
-        <p className="text-justify text-sm text-secondary-foreground lg:text-base">
+        <p className=" text-sm text-secondary-foreground lg:text-base">
           Passionné par le développement web depuis plusieurs années, j'aime résoudre des problèmes
           complexes et créer des expériences numériques utiles et agréables. Fullstack dans l'âme,
           je maîtrise aussi bien le frontend que le backend.

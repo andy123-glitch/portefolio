@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import hero from '../assets/hero.png';
 import Button from '../components/Button';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { socials } from '../datas/socialsData';
 // Bulles d'icônes tech flottantes autour de la photo
 const floatingTechs = [
   { name: 'React', icon: 'https://cdn.simpleicons.org/react/61DAFB', angle: 0 },
@@ -26,24 +27,26 @@ export default function Hero() {
           technologies de pointe.
         </p>
         <div className="flex gap-4">
-          <Button>
+          <Button href="/Andy_Azerot_CV.pdf" target="_blank">
             <Download size={18} />
-            Télécharger mon CV
+            Voir le CV (PDF)
           </Button>
-          <Button variant="secondary">
+          <Button variant="secondary" href="#projects">
             Voir mes projets <ArrowRight size={18} />
           </Button>
         </div>
         <div className="flex gap-2">
-          <Button variant="icon" size="icon">
-            <FaGithub />
-          </Button>
-          <Button variant="icon" size="icon">
-            <FaLinkedin />
-          </Button>
-          <Button variant="icon" size="icon">
-            <Mail />
-          </Button>
+          {socials.map((social, index) => (
+            <Button
+              key={index + 'Footer' + social.name}
+              variant="icon"
+              size="icon"
+              {...social.attributs}
+              aria-label={social.ariaLabel}
+            >
+              <social.icon />
+            </Button>
+          ))}
         </div>
       </div>
       <div className="relative order-1 flex justify-center lg:order-2">

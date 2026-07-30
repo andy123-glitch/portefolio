@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <Block id="projects">
       <SubTitle>PROJETS RÉCENTS</SubTitle>
-      <BlockTitle>Mon parcours</BlockTitle>
+      <BlockTitle>Mes projets</BlockTitle>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
           <ProjectCard project={p} />

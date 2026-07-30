@@ -48,3 +48,17 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans);
 }
+/* Corriger le style de l'autocomplétion des navigateurs (Autofill) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  /* Force la couleur du texte en blanc */
+  -webkit-text-fill-color: white !important;
+
+  /* L'astuce magique pour empêcher le navigateur de changer la couleur de fond.
+     On crée une transition de 5000 secondes sur la couleur de fond ! */
+  transition: background-color 5000s ease-in-out 0s;
+}
