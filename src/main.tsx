@@ -13,7 +13,7 @@ import Footer from './layouts/Footer';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Navbar />
-    <main className="mx-auto container px-5">
+    <main className="mx-auto container px-6">
       <Hero />
       <About />
       <Skills />

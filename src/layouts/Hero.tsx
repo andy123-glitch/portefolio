@@ -1,6 +1,6 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
-import hero from '../assets/hero.png';
+import hero from '../assets/hero.webp';
 import Button from '../components/Button';
 import { socials } from '../datas/socialsData';
 // Bulles d'icônes tech flottantes autour de la photo
@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="flex gap-4">
           <Button href="/Andy_Azerot_CV.pdf" target="_blank">
             <Download size={18} />
-            Voir le CV (PDF)
+            Voir mon CV (PDF)
           </Button>
           <Button variant="secondary" href="#projects">
             Voir mes projets <ArrowRight size={18} />

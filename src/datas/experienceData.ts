@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
     id: 2,
     period: '2022 - 2023',
     city: 'Belfort, France',
-    role: 'Licence professionnelle',
+    role: 'Licence Professionnelle TEPROW',
     company: 'IUT de Belfort',
     technologies: ['SwiftUI', 'Laravel', 'Ionic', 'Vue'],
   },

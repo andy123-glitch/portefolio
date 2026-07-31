@@ -1,8 +1,8 @@
 // Projets - données pour la section Projects
 import { type Project } from '../types/index';
-import grimoire from '../assets/prev_grimoire.jpeg';
-import kasa from '../assets/prev_kasa.jpeg';
-import suivi from '../assets/prev_suiv_de_fiche.png';
+import grimoire from '../assets/prev_grimoire.webp';
+import kasa from '../assets/prev_kasa.webp';
+import suivi from '../assets/prev_suiv_de_fiche.webp';
 
 export const projects: Project[] = [
   {
