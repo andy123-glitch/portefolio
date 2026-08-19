@@ -43,11 +43,32 @@
 }
 
 /* Style de base pour appliquer le fond et la couleur de texte par défaut */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
+
 /* Corriger le style de l'autocomplétion des navigateurs (Autofill) */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

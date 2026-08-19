@@ -3,6 +3,7 @@ import { navLinks } from '../datas/navData';
 import Button from '../components/Button';
 import { socials } from '../datas/socialsData';
 import Logo from '../components/Logo';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const footerLinksStyle = 'mt-1 block text-sm text-muted-foreground hover:text-primary';
@@ -32,9 +33,9 @@ export default function Footer() {
           <div>
             <h3 className="text-base font-semibold">Navigation</h3>
             {navLinks.map((link) => (
-              <a key={'fl-' + link.label} href={link.href} className={footerLinksStyle}>
+              <Link key={'fl-' + link.label} to={link.href} className={footerLinksStyle}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div>

@@ -7,6 +7,7 @@ import suivi from '../assets/prev_suiv_de_fiche.webp';
 export const projects: Project[] = [
   {
     id: 1,
+    slug: 'suivi-de-fiches',
     title: 'Suivi de fiches',
     description:
       'Application de suivi et de gestion des fiches de stage des alternants, centralisant les tâches, les commentaires et les formations.',
@@ -40,6 +41,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    slug: 'kasa-react',
     title: 'Kasa',
     description:
       'Application web de location de logements entre particuliers, conçue comme une Single Page Application moderne et réactive.',
@@ -74,6 +76,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    slug: 'grimoire-api',
     title: 'Grimoire',
     description:
       'API backend du projet OCR Livre, développée pour gérer les utilisateurs, les livres et le traitement des images.',
