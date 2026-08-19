@@ -65,6 +65,8 @@ export default function ProjectDetailPage() {
         <img
           src={project.image}
           alt={`Capture d'écran de la page d'accueil du projet ${project.title}`}
+          loading="lazy"
+          decoding="async"
           className="max-h-130 w-full rounded-xl border border-border object-cover"
         />
 

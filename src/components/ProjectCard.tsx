@@ -16,6 +16,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <img
           alt={`Capture d'écran de la page d'accueil du projet ${project.title}`}
           src={project.image}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {project.githubUrl && (

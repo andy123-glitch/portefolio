@@ -13,13 +13,12 @@ export default function Badge({
   className = '',
   skill,
 }: Badgeprops) {
-  const baseInteractive = 'group relative overflow-hidden transition-all duration-300 ease-out motion-safe:animate-[badgeFloat_3s_ease-in-out_infinite]';
+  const baseInteractive =
+    'group relative overflow-hidden transition-all duration-300 ease-out motion-safe:animate-[badgeFloat_3s_ease-in-out_infinite]';
 
   const variants: { [index: string]: string } = {
-    primary:
-      `${baseInteractive} inline-flex items-center gap-2 rounded-xl border border-border bg-tag-bg px-3 py-1.5 text-sm hover:-translate-y-0.5 hover:border-primary/70 hover:shadow-[0_0_22px_rgba(0,200,255,0.24)]`,
-    secondary:
-      `${baseInteractive} inline-flex items-center gap-2 rounded-sm border border-border bg-tag-bg px-2.5 py-1 text-xs text-muted-foreground hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_0_14px_rgba(0,200,255,0.12)]`,
+    primary: `${baseInteractive} inline-flex items-center gap-2 rounded-xl border border-border bg-tag-bg px-3 py-1.5 text-sm hover:-translate-y-0.5 hover:border-primary/70 hover:shadow-[0_0_22px_rgba(0,200,255,0.24)]`,
+    secondary: `${baseInteractive} inline-flex items-center gap-2 rounded-sm border border-border bg-tag-bg px-2.5 py-1 text-xs text-muted-foreground hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_0_14px_rgba(0,200,255,0.12)]`,
   };
 
   return (

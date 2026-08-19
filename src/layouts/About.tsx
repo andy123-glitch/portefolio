@@ -1,5 +1,6 @@
 import { Calendar, Contact, Mail, Pin } from 'lucide-react';
 import Block from '../components/Block';
+import React from 'react';
 import SubTitle from '../components/SubTitle';
 import BlockTitle from '../components/BlockTitle';
 
@@ -24,13 +25,13 @@ export default function About() {
           {personalInformation.map(({ Icon, label, data }) => {
             const IconT = Icon;
             return (
-              <>
+              <React.Fragment key={label}>
                 <IconT size={18} color="#00c8ff" />
                 <div className="text-sm text-secondary-foreground lg:pr-15 lg:text-base">
                   {label}
                 </div>
                 <p className="text-sm lg:text-base">{data}</p>
-              </>
+              </React.Fragment>
             );
           })}
         </div>
