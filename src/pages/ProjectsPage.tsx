@@ -1,7 +1,9 @@
 import ProjectCard from '../components/ProjectCard';
-import { projects } from '../datas/projectsData';
+import { useProjects } from '../datas/projectsData';
 
 export default function ProjectsPage() {
+  const { projects } = useProjects();
+
   return (
     <main className="mx-auto min-h-screen max-w-6xl px-6 pt-28 pb-16">
       <p className="mb-2 text-sm font-semibold tracking-widest text-primary">PORTFOLIO</p>

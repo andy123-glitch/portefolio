@@ -2,7 +2,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 import Badge from '../components/Badge';
-import { projects } from '../datas/projectsData';
+import { useProjects } from '../datas/projectsData';
 
 interface DetailListProps {
   title: string;
@@ -40,6 +40,7 @@ function ProjectNotFound() {
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
+  const { projects } = useProjects();
   const project = projects.find((item) => item.slug === slug);
 
   if (!project) {

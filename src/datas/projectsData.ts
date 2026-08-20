@@ -1,10 +1,11 @@
 // Projets - données pour la section Projects
+import { useEffect, useState } from 'react';
 import { type Project } from '../types/index';
 import grimoire from '../assets/prev_grimoire.webp';
 import kasa from '../assets/prev_kasa.webp';
 import suivi from '../assets/prev_suiv_de_fiche.webp';
 
-export const projects: Project[] = [
+const fallbackProjects: Project[] = [
   {
     id: 1,
     slug: 'suivi-de-fiches',
@@ -109,3 +110,101 @@ export const projects: Project[] = [
     image: grimoire,
   },
 ];
+
+const githubImages = [suivi, kasa, grimoire];
+const githubUsername = import.meta.env.VITE_GITHUB_USERNAME ?? 'andy123-glitch';
+
+type GitHubRepo = {
+  id?: number;
+  name?: string;
+  description?: string | null;
+  private?: boolean;
+  fork?: boolean;
+  language?: string | null;
+  homepage?: string | null;
+  html_url?: string | null;
+  updated_at?: string;
+};
+
+function normaliseTitle(name: string) {
+  return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+export async function fetchGitHubProjects(): Promise<Project[]> {
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${githubUsername}/repos?per_page=100`,
+      {
+        headers: {
+          Accept: 'application/vnd.github+json',
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+
+    const repos = (await response.json()) as GitHubRepo[];
+
+    if (!Array.isArray(repos)) {
+      return fallbackProjects;
+    }
+
+    const publicRepos = repos
+      .filter((repo) => !repo.private && !repo.fork && Boolean(repo.name))
+      .sort((a, b) => new Date(b.updated_at ?? 0).getTime() - new Date(a.updated_at ?? 0).getTime())
+      .slice(0, 6);
+
+    return publicRepos.map((repo, index) => {
+      const name = repo.name ?? `project-${index + 1}`;
+      const title = normaliseTitle(name);
+      const technologies = repo.language ? [repo.language] : ['GitHub'];
+
+      return {
+        id: Number(repo.id ?? index + 1),
+        slug: name,
+        title,
+        description: repo.description || `Projet public GitHub : ${title}.`,
+        context: 'Dépôt public GitHub mis à jour automatiquement depuis le profil GitHub.',
+        objectives: [
+          'Afficher le dépôt public et l’état du projet',
+          'Présenter la stack principale',
+        ],
+        stack: technologies,
+        skillsDeveloped: ['Projet public GitHub', 'Développement technique'],
+        results: ['Dépôt synchronisé depuis GitHub', 'Mise à jour automatique du portfolio'],
+        improvements: ['Compléter la description technique du projet'],
+        technologies,
+        githubUrl: repo.html_url ?? undefined,
+        liveUrl: repo.homepage || undefined,
+        image: githubImages[index % githubImages.length],
+      };
+    });
+  } catch (error) {
+    console.error('Unable to load GitHub projects, using fallback projects instead.', error);
+    return fallbackProjects;
+  }
+}
+
+export function useProjects() {
+  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
+
+  useEffect(() => {
+    let active = true;
+
+    fetchGitHubProjects().then((data) => {
+      if (active) {
+        setProjects(data);
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return { projects };
+}
+
+export { fallbackProjects as projects };

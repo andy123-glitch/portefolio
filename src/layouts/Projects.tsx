@@ -2,10 +2,12 @@ import Block from '../components/Block';
 import BlockTitle from '../components/BlockTitle';
 import ProjectCard from '../components/ProjectCard';
 import SubTitle from '../components/SubTitle';
-import { projects } from '../datas/projectsData';
+import { useProjects } from '../datas/projectsData';
 import { Link } from 'react-router-dom';
 
 export default function Projects() {
+  const { projects } = useProjects();
+
   return (
     <Block id="projects">
       <SubTitle>PROJETS RÉCENTS</SubTitle>
