@@ -1,6 +1,6 @@
 import { type Skill } from '../types/index';
 
-interface Badgeprops {
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
   skill?: Skill;
@@ -12,7 +12,8 @@ export default function Badge({
   variant = 'primary',
   className = '',
   skill,
-}: Badgeprops) {
+  ...props
+}: BadgeProps) {
   const baseInteractive =
     'group relative overflow-hidden transition-all duration-300 ease-out motion-safe:animate-[badgeFloat_3s_ease-in-out_infinite]';
 
@@ -22,7 +23,7 @@ export default function Badge({
   };
 
   return (
-    <div className={`${variants[variant]} ${className}`}>
+    <div className={`${variants[variant]} ${className}`} {...props}>
       <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-cyan-300/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full z-0" />
       <span className="relative z-10 inline-flex items-center gap-2">
         {skill && <skill.icon color={skill.color} size={20} />}

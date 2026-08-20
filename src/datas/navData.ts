@@ -3,6 +3,6 @@ export const navLinks = [
   { label: 'À propos', href: '/#about' },
   { label: 'Compétences', href: '/#skills' },
   { label: 'Projets', href: '/projets' },
-  { label: 'Expérience', href: '/#experience' },
+  { label: 'Expérience', href: '/experience' },
   { label: 'Contact', href: '/#contact' },
 ];

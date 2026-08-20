@@ -40,8 +40,8 @@ function ProjectNotFound() {
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
-  const { projects } = useProjects();
-  const project = projects.find((item) => item.slug === slug);
+  const { localProjects } = useProjects();
+  const project = localProjects.find((item) => item.slug === slug);
 
   if (!project) {
     return <ProjectNotFound />;
@@ -62,14 +62,6 @@ export default function ProjectDetailPage() {
           <h1 className="mb-4 text-3xl font-bold lg:text-4xl">{project.title}</h1>
           <p className="max-w-3xl text-lg text-secondary-foreground">{project.description}</p>
         </header>
-
-        <img
-          src={project.image}
-          alt={`Capture d'écran de la page d'accueil du projet ${project.title}`}
-          loading="lazy"
-          decoding="async"
-          className="max-h-130 w-full rounded-xl border border-border object-cover"
-        />
 
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((technology) => (

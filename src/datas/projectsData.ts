@@ -39,6 +39,7 @@ const fallbackProjects: Project[] = [
     technologies: ['MySQL', 'PHP', 'Symfony', 'Docker'],
     liveUrl: 'https://alternant.greta-digital.fr/',
     image: suivi,
+    source: 'local',
   },
   {
     id: 2,
@@ -74,6 +75,7 @@ const fallbackProjects: Project[] = [
     githubUrl: 'https://github.com/andy123-glitch/Kasa-React',
     liveUrl: 'https://kasa.andy-azerot.fr/',
     image: kasa,
+    source: 'local',
   },
   {
     id: 3,
@@ -108,10 +110,10 @@ const fallbackProjects: Project[] = [
     technologies: ['Express', 'MongoDB', 'Node.js'],
     githubUrl: 'https://github.com/andy123-glitch/backend-ocr-livre',
     image: grimoire,
+    source: 'local',
   },
 ];
 
-const githubImages = [suivi, kasa, grimoire];
 const githubUsername = import.meta.env.VITE_GITHUB_USERNAME ?? 'andy123-glitch';
 const githubTopicFilter = 'portfolio';
 
@@ -132,8 +134,11 @@ function normaliseTitle(name: string) {
   return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function getPlaceholderImage(index: number) {
-  return githubImages[index % githubImages.length];
+function getPlaceholderImage(name: string, index: number) {
+  const label = name.replace(/[-_]+/g, ' ').trim() || `Projet ${index + 1}`;
+  const encodedLabel = encodeURIComponent(label.slice(0, 20));
+
+  return `https://placehold.co/600x400/0a0f1e/00c8ff?text=${encodedLabel}`;
 }
 
 export async function fetchGitHubProjects(): Promise<Project[]> {
@@ -154,7 +159,7 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
     const repos = (await response.json()) as GitHubRepo[];
 
     if (!Array.isArray(repos)) {
-      return fallbackProjects;
+      return [];
     }
 
     const publicRepos = repos
@@ -169,10 +174,7 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
       .slice(0, 6);
 
     if (publicRepos.length === 0) {
-      return fallbackProjects.map((project, index) => ({
-        ...project,
-        image: getPlaceholderImage(index),
-      }));
+      return [];
     }
 
     return publicRepos.map((repo, index) => {
@@ -197,28 +199,28 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
         technologies,
         githubUrl: repo.html_url ?? undefined,
         liveUrl: repo.homepage || undefined,
-        image: getPlaceholderImage(index),
+        image: getPlaceholderImage(name, index),
+        source: 'github' as const,
       };
     });
   } catch (error) {
-    console.error('Unable to load GitHub projects, using fallback projects instead.', error);
-    return fallbackProjects.map((project, index) => ({
-      ...project,
-      image: getPlaceholderImage(index),
-    }));
+    console.error('Unable to load GitHub projects, no GitHub section will be displayed.', error);
+    return [];
   }
 }
 
 export function useProjects() {
-  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
+  const [githubProjects, setGithubProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     let active = true;
 
     fetchGitHubProjects().then((data) => {
-      if (active) {
-        setProjects(data);
+      if (!active) {
+        return;
       }
+
+      setGithubProjects(data);
     });
 
     return () => {
@@ -226,7 +228,11 @@ export function useProjects() {
     };
   }, []);
 
-  return { projects };
+  return {
+    localProjects: fallbackProjects,
+    githubProjects,
+    projects: [...fallbackProjects, ...githubProjects],
+  };
 }
 
 export { fallbackProjects as projects };

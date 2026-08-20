@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './layouts/Footer';
 import Header from './layouts/Header';
+import ExperiencePage from './pages/ExperiencePage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
@@ -64,6 +65,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/projets" element={<ProjectsPage />} />
         <Route path="/projets/:slug" element={<ProjectDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />

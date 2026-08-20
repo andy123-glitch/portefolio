@@ -3,7 +3,9 @@ export interface Skill {
   name: string;
   color: string;
   icon: LucideIcon;
-  category?: 'frontend' | 'backend' | 'outil'; // Optionnel, pour filtrer
+  category?: 'frontend' | 'backend' | 'outil';
+  description: string;
+  usage: string;
 }
 
 export interface Project {
@@ -21,6 +23,7 @@ export interface Project {
   technologies: string[];
   liveUrl?: string; // Optionnel (ex: "Voir le projet")
   githubUrl?: string; // Optionnel
+  source?: 'local' | 'github';
 }
 
 export interface Experience {
