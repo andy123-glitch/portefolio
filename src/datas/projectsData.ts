@@ -113,6 +113,7 @@ const fallbackProjects: Project[] = [
 
 const githubImages = [suivi, kasa, grimoire];
 const githubUsername = import.meta.env.VITE_GITHUB_USERNAME ?? 'andy123-glitch';
+const githubTopicFilter = 'portfolio';
 
 type GitHubRepo = {
   id?: number;
@@ -124,10 +125,15 @@ type GitHubRepo = {
   homepage?: string | null;
   html_url?: string | null;
   updated_at?: string;
+  topics?: string[];
 };
 
 function normaliseTitle(name: string) {
   return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function getPlaceholderImage(index: number) {
+  return githubImages[index % githubImages.length];
 }
 
 export async function fetchGitHubProjects(): Promise<Project[]> {
@@ -152,9 +158,22 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
     }
 
     const publicRepos = repos
-      .filter((repo) => !repo.private && !repo.fork && Boolean(repo.name))
+      .filter(
+        (repo) =>
+          !repo.private &&
+          !repo.fork &&
+          Boolean(repo.name) &&
+          repo.topics?.includes(githubTopicFilter)
+      )
       .sort((a, b) => new Date(b.updated_at ?? 0).getTime() - new Date(a.updated_at ?? 0).getTime())
       .slice(0, 6);
+
+    if (publicRepos.length === 0) {
+      return fallbackProjects.map((project, index) => ({
+        ...project,
+        image: getPlaceholderImage(index),
+      }));
+    }
 
     return publicRepos.map((repo, index) => {
       const name = repo.name ?? `project-${index + 1}`;
@@ -178,12 +197,15 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
         technologies,
         githubUrl: repo.html_url ?? undefined,
         liveUrl: repo.homepage || undefined,
-        image: githubImages[index % githubImages.length],
+        image: getPlaceholderImage(index),
       };
     });
   } catch (error) {
     console.error('Unable to load GitHub projects, using fallback projects instead.', error);
-    return fallbackProjects;
+    return fallbackProjects.map((project, index) => ({
+      ...project,
+      image: getPlaceholderImage(index),
+    }));
   }
 }
 
