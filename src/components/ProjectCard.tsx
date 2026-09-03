@@ -11,8 +11,6 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const navigate = useNavigate();
   const isGithubProject = project.source === 'github';
-  const hasProjectLink = Boolean(project.githubUrl);
-  const showGithubShortcut = Boolean(project.liveUrl && project.githubUrl);
 
   const handleCardClick = (event: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>) => {
     const target = event.target;
@@ -30,7 +28,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className="group grid cursor-pointer grid-rows-[auto_1fr] overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,200,255,0.15)]"
+      className="group grid h-full cursor-pointer grid-rows-[auto_1fr] overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,200,255,0.15)]"
       onClick={handleCardClick}
       role="link"
       tabIndex={0}
@@ -50,19 +48,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {showGithubShortcut && project.githubUrl && (
+        {project.githubUrl && !isGithubProject && (
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(event) => event.stopPropagation()}
-            className="absolute top-2 right-2 z-10 inline-flex items-center rounded-full border border-primary/60 bg-slate-900/90 px-2.5 py-1 text-[10px] font-semibold text-primary shadow-[0_0_12px_rgba(0,200,255,0.2)] backdrop-blur-sm"
+            className="absolute top-2 right-2 z-10 inline-flex items-center rounded-full border border-primary/60 bg-slate-900/90 px-2.5 py-1 text-[12px] font-semibold text-primary shadow-[0_0_12px_rgba(0,200,255,0.2)] backdrop-blur-sm"
           >
             Aller sur GitHub
           </a>
         )}
       </div>
-      <div className="flex flex-col gap-4 p-3">
+      <div className="flex flex-col gap-4 p-3 h-full">
         <h3 className="text-base font-bold">{project.title}</h3>
 
         {!isGithubProject && (
@@ -79,7 +77,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        {isGithubProject || hasProjectLink ? (
+        {isGithubProject ? (
           <a
             href={project.githubUrl || (isGithubProject ? project.githubUrl : undefined)}
             target="_blank"

@@ -145,9 +145,11 @@ export default function Contact() {
           {sending ? <Loader size={16} className="animate-spin" /> : <Send size={16} />}
         </Button>
 
-        <p className="min-h-6 text-center text-sm" aria-live="polite">
+        <p className="min-h-6 text-center text-sm mb-3" aria-live="polite">
           {status === 'success' && (
-            <span className="text-primary">Le message a bien été envoyé !</span>
+            <span className="text-primary text-base font-bold ">
+              Le message a bien été envoyé !
+            </span>
           )}
           {status === 'error' && (
             <span className="text-red-400">

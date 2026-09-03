@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 import Badge from '../components/Badge';
 import { useProjects } from '../datas/projectsData';
+import Button from '../components/Button';
 
 interface DetailListProps {
   title: string;
@@ -60,7 +61,7 @@ export default function ProjectDetailPage() {
         <header>
           <p className="mb-2 text-sm font-semibold tracking-widest text-primary">PROJET</p>
           <h1 className="mb-4 text-3xl font-bold lg:text-4xl">{project.title}</h1>
-          <p className="max-w-3xl text-lg text-secondary-foreground">{project.description}</p>
+          <p className="max-w-4xl text-lg text-secondary-foreground">{project.description}</p>
         </header>
 
         <div className="flex flex-wrap gap-2">
@@ -73,24 +74,19 @@ export default function ProjectDetailPage() {
 
         <div className="flex flex-wrap gap-4">
           {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
+            <Button href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               Voir la démo <ExternalLink size={16} />
-            </a>
+            </Button>
           )}
           {project.githubUrl && (
-            <a
+            <Button
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 font-semibold transition-colors hover:border-primary hover:text-primary"
+              variant="secondary"
             >
               Voir sur GitHub <FaGithub size={16} />
-            </a>
+            </Button>
           )}
         </div>
 
